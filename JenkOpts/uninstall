@@ -8,7 +8,6 @@ sudo rm /etc/systemd/system/jenkins.service
 
 echo *service removed*
 
-sudo userdel jenkins
 sudo userdel -r jenkins
 
 echo *user profiles deleted*

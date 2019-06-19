@@ -9,23 +9,22 @@ sudo useradd --create-home jenkins
 sudo usermod --shell /bin/bash jenkins
 
 #switch user to jenkins, download Jenkins WAR, exit user
-	#sudo su - jenkins
-	#wget http://updates.jenkins-ci.org/latest/jenkins.war
-	#echo !!!!!!!!!!!
-	#exit
-
+sudo su - jenkins -c "wget http://updates.jenkins-ci.org/latest/jenkins.war"
+sudo su - jenkins -c "whoami"
+sudo su - jenkins -c "echo was set-up"
 #	set up PATH
 
-#	create and configure the service script
-
-# create vim file
+# create vim file for service script
 sudo touch /etc/systemd/system/jenkins.service
+sudo chmod a=rwx /etc/systemd/system/jenkins.service
 echo JENKINS SERVICE CREATED
-# move jenkins.service to below location
-sudo /jenkins.service > /etc/systemd/system/jenkins.service
+# populate jenkins.service with template file
+sudo cat jenkins.service > /etc/systemd/system/jenkins.service
 echo JENKINS SERVICE POPULATED
 #load new service
 sudo systemctl daemon-reload
+echo Service loaded
 
 #start Jenkins
 sudo systemctl start jenkins
+echo Jenkins started ... Go to localhost:8080
