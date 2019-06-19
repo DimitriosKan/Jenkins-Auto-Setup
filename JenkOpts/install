@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # install dependencies
 sudo apt install -y wget vim openjdk-8-jdk openjdk-8-jre
 
@@ -7,17 +9,21 @@ sudo useradd --create-home jenkins
 sudo usermod --shell /bin/bash jenkins
 
 #switch user to jenkins, download Jenkins WAR, exit user
-sudo su - jenkins
-wget http://update.jenkins-ci.org/latest/jenkins.war
-exit
+	#sudo su - jenkins
+	#wget http://updates.jenkins-ci.org/latest/jenkins.war
+	#echo !!!!!!!!!!!
+	#exit
 
-#set up PATH
+#	set up PATH
 
-#create and configure the service script
- # create vim file
- # write configs to file
- # move jenkins.service to below location
-mv jenkins.service /etc/systemd/system
+#	create and configure the service script
+
+# create vim file
+sudo touch /etc/systemd/system/jenkins.service
+echo JENKINS SERVICE CREATED
+# move jenkins.service to below location
+sudo /jenkins.service > /etc/systemd/system/jenkins.service
+echo JENKINS SERVICE POPULATED
 #load new service
 sudo systemctl daemon-reload
 
