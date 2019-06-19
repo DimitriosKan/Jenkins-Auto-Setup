@@ -1,0 +1,25 @@
+# install dependencies
+sudo apt install -y wget vim openjdk-8-jdk openjdk-8-jre
+
+#creat user for Jenkins
+sudo useradd --create-home jenkins
+#set jenkins default shell to bash
+sudo usermod --shell /bin/bash jenkins
+
+#switch user to jenkins, download Jenkins WAR, exit user
+sudo su - jenkins
+wget http://update.jenkins-ci.org/latest/jenkins.war
+exit
+
+#set up PATH
+
+#create and configure the service script
+ # create vim file
+ # write configs to file
+ # move jenkins.service to below location
+mv jenkins.service /etc/systemd/system
+#load new service
+sudo systemctl daemon-reload
+
+#start Jenkins
+sudo systemctl start jenkins
