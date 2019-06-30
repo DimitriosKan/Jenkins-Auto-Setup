@@ -8,7 +8,8 @@ sudo useradd --create-home jenkins
 #set jenkins default shell to bash
 sudo usermod --shell /bin/bash jenkins
 
-#switch user to jenkins, download Jenkins WAR, exit user
+#switch user to jenkins, remove existing war file if available and download latest
+sudo su - jenkins -c "rm jenkins.war"
 sudo su - jenkins -c "wget http://updates.jenkins-ci.org/latest/jenkins.war"
 sudo su - jenkins -c "whoami"
 sudo su - jenkins -c "echo was set-up"
