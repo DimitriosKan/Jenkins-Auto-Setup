@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # install dependencies
+sudo apt update
 sudo apt install -y wget vim openjdk-8-jdk openjdk-8-jre
 
 #creat user for Jenkins
