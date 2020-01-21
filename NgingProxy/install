@@ -1,0 +1,12 @@
+#!/bin/bash
+
+sudo apt-get install -y nginx
+
+# copy file over to there ...
+sudo cat nginx.conf >> /etc/nginx/nginx.conf
+
+# reload service
+systemctl restart nginx
+
+# daemon-reload
+sudo systemctl daemon-reload
