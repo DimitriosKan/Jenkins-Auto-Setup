@@ -1,13 +1,19 @@
 #!/bin/bash
 
-sudo service jenkins stop
+sudo systemctl stop jenkins
 
-echo *service stopped*
+sudo systemctl disable jenkins 
+echo '*' *service stopped*
 
 sudo rm /etc/systemd/system/jenkins.service
 
-echo *service removed*
+echo '*' *service removed*
 
 sudo userdel -r jenkins
 
 echo *user profiles deleted*
+
+sudo systemctl daemon-reload
+sudo systemctl reset-failed
+
+echo '*' *service shut down*
