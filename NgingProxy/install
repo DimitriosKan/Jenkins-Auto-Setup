@@ -5,6 +5,7 @@ echo 'Install Nginx'
 
 # copy file over to there ...
 sudo cp nginx.conf /etc/nginx/
+
 echo 'Nginx config file setup'
 
 # reload service
@@ -14,3 +15,13 @@ echo 'Nginx restarting'
 # daemon-reload
 sudo systemctl daemon-reload
 echo 'Daemon reloading'
+
+# if it errors hard, try enabling this
+# sudo systemctl reenable nginx
+
+# daemon-reload
+sudo systemctl daemon-reload
+
+# reload service
+sudo systemctl restart nginx
+
