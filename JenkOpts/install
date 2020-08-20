@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # install dependencies
-sudo apt update
-sudo apt install -y wget vim openjdk-8-jdk openjdk-8-jre
+sudo yum update
+sudo yum install -y wget vim java-1.8.0-openjdk
 
 #creat user for Jenkins
 sudo useradd --create-home jenkins
@@ -29,4 +29,7 @@ echo Service loaded
 
 #start Jenkins
 sudo systemctl start jenkins
+
+sudo sustemctl status jenkins
+
 echo Jenkins started ... Go to localhost:8080
